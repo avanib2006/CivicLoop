@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CivicLoop - Register</title>
+</head>
+
+<body>
+
+    <h1>Create CivicLoop Account</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+        >
+
+        <br><br>
+
+        <label>I am:</label>
+
+        <select name="role">
+            <option value="citizen">Citizen</option>
+            <option value="authority">Authority</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">
+            Create Account
+        </button>
+
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="/login/">Login</a>
+    </p>
+
+</body>
+</html>
